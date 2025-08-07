@@ -239,7 +239,7 @@
               var CurrentYear = new Date().getFullYear()
               document.write(CurrentYear)
             </script>
-            , designed & developed by <a href="hamzaalhelou" class="text-muted">Hamza Al Helou</a>
+            , developed by <a href="https://github.com/hamzaalhelou" class="text-muted">Hamza Al Helou</a>
           </p>
         </div>
         <div class="col-sm-5 text-sm-right text-center">

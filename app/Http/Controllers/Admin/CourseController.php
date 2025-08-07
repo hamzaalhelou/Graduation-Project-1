@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Course;
 use App\Models\Teacher;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use App\Notifications\CourseNotification;
+use Illuminate\Support\Facades\Notification;
 
 class CourseController extends Controller
 {
@@ -143,6 +146,10 @@ class CourseController extends Controller
             'teacher_id' => $request->teacher_id,
             'image' => $courseimage
         ]);
+
+        $user = User::get();
+        $course= Course::latest()->first();
+        Notification::send($user, new CourseNotification($course));
 
 
         return redirect()

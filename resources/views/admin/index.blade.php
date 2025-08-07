@@ -29,17 +29,7 @@
                         <!--end::Header-->
                         <!--begin::Card body-->
                         <div class="card-body d-flex align-items-end pt-0">
-                            <!--begin::Progress-->
-                            <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                    <span>30 {{ __('admin.Pending') }}</span>
-                                    <span>{{ $course }}%</span>
-                                </div>
-                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
-                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: {{ $course }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <!--end::Progress-->
+
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -62,17 +52,6 @@
                         <!--end::Header-->
                         <!--begin::Card body-->
                         <div class="card-body d-flex align-items-end pt-0">
-                            <!--begin::Progress-->
-                            <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                    <span>35 {{ __('admin.Pending') }}</span>
-                                    <span>{{ $event }}%</span>
-                                </div>
-                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
-                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: {{ $event }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <!--end::Progress-->
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -98,17 +77,6 @@
                         <!--end::Header-->
                         <!--begin::Card body-->
                         <div class="card-body d-flex align-items-end pt-0">
-                            <!--begin::Progress-->
-                            <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                    <span>20 {{ __('admin.Pending') }}</span>
-                                    <span>{{ $teacher }}%</span>
-                                </div>
-                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
-                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: {{ $teacher }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <!--end::Progress-->
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -131,17 +99,6 @@
                         <!--end::Header-->
                         <!--begin::Card body-->
                         <div class="card-body d-flex align-items-end pt-0">
-                            <!--begin::Progress-->
-                            <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                    <span>15 {{ __('admin.Pending') }}</span>
-                                    <span>{{ $research }}%</span>
-                                </div>
-                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
-                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: {{ $research }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <!--end::Progress-->
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -168,17 +125,6 @@
                         <!--end::Header-->
                         <!--begin::Card body-->
                         <div class="card-body d-flex align-items-end pt-0">
-                            <!--begin::Progress-->
-                            <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                    <span>18 {{ __('admin.Pending') }}</span>
-                                    <span>{{ $journalist }}%</span>
-                                </div>
-                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
-                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: {{ $journalist }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <!--end::Progress-->
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -201,17 +147,6 @@
                         <!--end::Header-->
                         <!--begin::Card body-->
                         <div class="card-body d-flex align-items-end pt-0">
-                            <!--begin::Progress-->
-                            <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                <div class="d-flex justify-content-between fw-bold fs-6 text-white opacity-75 w-100 mt-auto mb-2">
-                                    <span>10 {{ __('admin.Pending') }}</span>
-                                    <span>{{ $feature }}%</span>
-                                </div>
-                                <div class="h-8px mx-3 w-100 bg-white bg-opacity-50 rounded">
-                                    <div class="bg-white rounded h-8px" role="progressbar" style="width: {{ $feature }}%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <!--end::Progress-->
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -219,7 +154,7 @@
                 </div>
                 <!--begin::Col-->
                 <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
-                    <div class="card card-flush h-md-50 mb-5 mb-xl-10">
+                    <div class="card card-flush h-md-40 mb-5 mb-xl-10">
                         <!--begin::Header-->
                         <div class="card-header pt-5">
                             <!--begin::Title-->

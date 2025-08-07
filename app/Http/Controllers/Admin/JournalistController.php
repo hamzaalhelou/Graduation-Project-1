@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Journalist;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\JournalistNotification;
 
 class JournalistController extends Controller
 {
@@ -51,6 +54,9 @@ class JournalistController extends Controller
             'content' => $request->content
 
         ]);
+        $user = User::get();
+        $journalist= Journalist::latest()->first();
+        Notification::send($user, new JournalistNotification($journalist));
         return redirect()
         ->route('admin.journalists.index')
         ->with('msg',__('admin.Journalist added successfully'))

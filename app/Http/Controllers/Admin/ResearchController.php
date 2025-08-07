@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Research;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use App\Notifications\ResearchNotification;
+use Illuminate\Support\Facades\Notification;
 
 class ResearchController extends Controller
 {
@@ -47,6 +50,9 @@ class ResearchController extends Controller
             'content' => $request->content,
             'image' => $researchimage,
         ]);
+        $user = User::get();
+        $research= Research::latest()->first();
+        Notification::send($user, new ResearchNotification($research));
         return redirect()
         ->route('admin.research.index')
         ->with('msg',__('admin.research added successfully'))

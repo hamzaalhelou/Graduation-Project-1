@@ -188,35 +188,50 @@
 								<!--begin::Notifications-->
 								<div class="app-navbar-item ms-1 ms-md-3">
 									<!--begin::Menu- wrapper-->
-									<div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-										<!--begin::Svg Icon | path: icons/duotune/general/gen022.svg-->
-										<span class="svg-icon svg-icon-2 svg-icon-md-1">
-											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px position-relative"
+                                    id="notificationToggle"
+                                    data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-attach="parent"
+                                    data-kt-menu-placement="bottom-end">
+
+                                    <!--begin::Svg Icon-->
+                                    <span class="svg-icon svg-icon-2 svg-icon-md-1">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M17,12 L18.5,12 C19.3284271,12 20,12.6715729 20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 C4,12.6715729 4.67157288,12 5.5,12 L7,12 L7.5582739,6.97553494 C7.80974924,4.71225688 9.72279394,3 12,3 C14.2772061,3 16.1902508,4.71225688 16.4417261,6.97553494 L17,12 Z" fill="currentColor" />
 												<path d="M17,12 L18.5,12 C19.3284271,12 20,12.6715729 20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 C4,12.6715729 4.67157288,12 5.5,12 L7,12 L7.5582739,6.97553494 C7.80974924,4.71225688 9.72279394,3 12,3 C14.2772061,3 16.1902508,4.71225688 16.4417261,6.97553494 L17,12 Z" fill="currentColor" />
 												<path opacity="0.3" d="M17,12 L18.5,12 C19.3284271,12 20,12.6715729 20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 C4,12.6715729 4.67157288,12 5.5,12 L7,12 L7.5582739,6.97553494 C7.80974924,4.71225688 9.72279394,3 12,3 C14.2772061,3 16.1902508,4.71225688 16.4417261,6.97553494 L17,12 Z" fill="currentColor" />
 												<path opacity="0.3" d="M17,12 L18.5,12 C19.3284271,12 20,12.6715729 20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 C4,12.6715729 4.67157288,12 5.5,12 L7,12 L7.5582739,6.97553494 C7.80974924,4.71225688 9.72279394,3 12,3 C14.2772061,3 16.1902508,4.71225688 16.4417261,6.97553494 L17,12 Z" fill="currentColor" />
 											</svg>
-										</span>
-										<!--end::Svg Icon-->
-									</div>
+                                    </span>
+                                    @php
+                                    $unreadCount = auth()->user()->unreadNotifications->count();
+                                    @endphp
+
+                                    @if($unreadCount > 0)
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                            id="notificationBadge">
+                                        {{ $unreadCount }}
+                                    </span>
+                                    @endif
+                                    </div>
+
 									<!--begin::Menu-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
 										<!--begin::Heading-->
-										{{-- <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('{{ asset('adminassets/media/misc/menu-header-bg.jpg') }}')">
+										<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('{{ asset('adminassets/media/misc/menu-header-bg.jpg') }}')">
 											<!--begin::Title-->
 											<h3 class="text-white fw-semibold px-9 mt-10 mb-6">{{ __('admin.Notifications') }}</h3>
 											<!--end::Title-->
 											<!--begin::Tabs-->
 
 											<!--end::Tabs-->
-										</div> --}}
+										</div>
 										<!--end::Heading-->
                                        <!--begin::Tab content-->
 										<div class="tab-content">
 											<!--begin::Tab panel-->
 																					<!--begin::Tab content-->
-										{{-- <div class="tab-content">
+										<div class="tab-content">
 											<!--begin::Tab panel-->
 											<div class="tab-pane fade show active" id="kt_topbar_notifications_2" role="tabpanel">
 												<!--begin::Items-->
@@ -245,7 +260,7 @@
 												<!--end::Items-->
 											</div>
 											<!--end::Tab panel-->
-										</div> --}}
+										</div>
 										<!--end::Tab content-->
 
 											<!--end::Tab panel-->
@@ -1059,7 +1074,7 @@
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted fw-semibold me-1">{{ date('Y') }}&copy;</span>
-                                <a href="https://keenthemes.com" target="_blank"
+                                <a href="{{ route('site.home') }}" target="_blank"
                                     class="text-gray-800 text-hover-primary">{{ env('APP_NAME') }}</a>
                             </div>
                             <!--end::Copyright-->
@@ -1905,10 +1920,10 @@
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
-                            {{-- <div class="menu-item px-3 my-1">
+                            <div class="menu-item px-3 my-1">
                                 <a href="#" class="menu-link px-3" data-bs-toggle="tooltip"
                                     title="Coming soon">Settings</a>
-                            </div> --}}
+                            </div>
                             <!--end::Menu item-->
                         </div>
                         <!--end::Menu 3-->
@@ -2784,6 +2799,29 @@
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
     @yield('scripts')
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const notificationToggle = document.getElementById('notificationToggle');
+        const notificationBadge = document.getElementById('notificationBadge');
+
+        notificationToggle.addEventListener('click', function () {
+            // أخفي الرقم الأحمر
+            if (notificationBadge) {
+                notificationBadge.style.display = 'none';
+            }
+
+            // أرسل طلب إلى السيرفر لتحديث الإشعارات بأنها "مقروءة"
+            fetch("{{ route('notifications.read') }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json',
+                },
+            });
+        });
+    });
+</script>
+
 </body>
 <!--end::Body-->
 

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Event;
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
+use App\Notifications\EventNotification;
+use Illuminate\Support\Facades\Notification;
 
 class EventController extends Controller
 {
@@ -54,6 +56,9 @@ class EventController extends Controller
             'content' => $request->content
 
         ]);
+        $user = User::get();
+        $event= Event::latest()->first();
+        Notification::send($user, new EventNotification($event));
 
         return redirect()
         ->route('admin.events.index')

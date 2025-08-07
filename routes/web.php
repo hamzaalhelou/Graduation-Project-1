@@ -38,6 +38,12 @@ Route::resource('roles', RoleController::class);});
     Route::get('/notice', [SiteController::class, 'notice'])->name('site.notice');
     Route::get('/scholarship', [SiteController::class, 'scholarship'])->name('site.scholarship');
     Route::get('/courses/{id}', [SiteController::class, 'course_single'])->name('site.course_single');
+    Route::get('/courses/{id}/apply', [SiteController::class, 'apply'])->name('site.apply')->middleware('auth');
+    Route::get('/courses/{id}/payment', [SiteController::class, 'payment'])->name('site.payment')->middleware('auth');
+    Route::post('/notifications/read', function () {
+    auth()->user()->unreadNotifications->markAsRead();
+    return response()->json(['status' => 'success']);
+    })->name('notifications.read');
     });
 
 Auth::routes();
